@@ -57,6 +57,16 @@ class EventController extends AbstractController {
 	}
 
 	/**
+	 * @Route("/bloc", name="site_event_bloc", methods="GET")
+	 */
+	public function bloc(EventRepository $eventRepository): Response {
+		return $this->render('site/event/index.html.twig', [
+			'events' => $eventRepository->findAll(),
+			'pageStyle' => 'left-sidebar',
+		]);
+	}
+
+	/**
 	 * @Route("/{id}/edit", name="site_event_edit", methods="GET|POST")
 	 */
 	public function edit(Request $request, Event $event): Response{
