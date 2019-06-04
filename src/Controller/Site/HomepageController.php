@@ -33,9 +33,16 @@ class HomepageController extends AbstractController {
 			->findActiveHomepage()
 		;
 
+		$configs = array(
+			'site' => [
+				'theme' => 'cascade',
+			],
+		);
+
 		return $this->render('site/homepage/index.html.twig', [
 			'homepage' => $activeHomepage,
 			'javascripts' => $this->javascripts,
+			'configs' => $configs,
 		]);
 	}
 
